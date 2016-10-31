@@ -60,7 +60,7 @@ AND PrivilegeOperation='Permit'
 4.从sys_menu表中通过MenuID，查找对应MenuName
 
 查询结果：
-![](/)
+![](/MenuName.png)
 
 
 查询用户test1对订单(order)页面中的操作权限(sys_button)
@@ -120,11 +120,22 @@ WHERE MenuName='订单')
 )
 
 ##伪代码
+
 1.从用户表cf_user中通过用户名LoginName查找用户ID UserID
+
 2.通过UserID从用户角色表cf_userrole中查找该用户对应角色的集合
+
 3.从权限表中通过用户ID或用户对应角色集合，查找对象名为Sys_Button 和 访问权限为permit的对应MenuID
+
 4.从sys_menu表中找到名称为‘订单’的MenuID
+
 5.从sys_button表中找出MenuName为订单的MenuNo
+
 6.再从第5步中找到的MenuNo中找出属于第3步中MenuID的记录
+
 7.通过MenuID连接PrivilegeAccessKey与Sys_Button
+
 8.选择出所选记录对应的权限类型，对象类型，对象名称
+
+查询结果：
+![](/PPB.png)
