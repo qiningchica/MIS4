@@ -62,3 +62,33 @@ AND PrivilegeOperation='Permit'
 查询结果：
 ![](/)
 
+
+
+## SQL语句
+SELECT PrivilegeMaster,PrivilegeAccess,BtnName
+FROM cf_privilege AS cp LEFT JOIN sys_button AS sb ON cp.PrivilegeAccessKey=sb.BtnID
+WHERE((PrivilegeMaster='CF_Role' AND PrivilegeMasterKey IN
+(SELECT RoleID
+FROM cf_userrole
+WHERE UserID=
+(SELECT UserID
+FROM cf_user
+WHERE LoginName='test1')
+)
+)
+OR (PrivilegeMaster='CF_User' AND PrivilegeMasterKey=
+(SELECT UserID
+FROM cf_user
+WHERE LoginName='test1')
+)
+)
+AND PrivilegeAccess='Sys_Button'
+AND PrivilegeOperation='Permit'
+AND PrivilegeAccessKey IN 
+(SELECT BtnID
+FROM sys_button
+WHERE MenuNo=
+(SELECT MenuNo
+FROM sys_menu
+WHERE MenuName='订单')
+)
