@@ -5,27 +5,49 @@
 ## SQL语句：
 
 SELECT MenuName 
+
 FROM sys_menu 
+
 WHERE MenuID IN
+
 (SELECT PrivilegeAccessKey
+
 FROM cf_privilege
+
 WHERE ((PrivilegeMaster='CF_Role' AND PrivilegeMasterKey IN
+
 (SELECT RoleID
+
 FROM cf_userrole
+
 WHERE UserID=
+
 (SELECT UserID
+
 FROM cf_user
+
 WHERE LoginName='test1')
+
 )
+
 )
+
 OR (PrivilegeMaster='CF_User' AND PrivilegeMasterKey=
+
 (SELECT UserID
+
 FROM cf_user
+
 WHERE LoginName='test1')
+
 )
+
 )
+
 AND PrivilegeAccess='Sys_Menu'
+
 AND PrivilegeOperation='Permit'
+
 ) 
 
 ## 伪代码
