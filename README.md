@@ -1,6 +1,6 @@
 # MIS4
 
- 查询用户test1可以查看的页面（Sys_menu）
+### 查询用户test1可以查看的页面（Sys_menu）
 
 ## SQL语句：
 
@@ -59,11 +59,11 @@ AND PrivilegeOperation='Permit'
 
 4.从sys_menu表中通过MenuID，查找对应MenuName
 
-查询结果：
+### 查询结果：
 ![](/MenuName.png)
 
 
-查询用户test1对订单(order)页面中的操作权限(sys_button)
+### 查询用户test1对订单(order)页面中的操作权限(sys_button)
 ## SQL语句
 SELECT PrivilegeMaster,PrivilegeAccess,BtnName
 
@@ -137,5 +137,5 @@ WHERE MenuName='订单')
 
 8.选择出所选记录对应的权限类型，对象类型，对象名称
 
-查询结果：
+### 查询结果：
 ![](/PPB.png)
