@@ -30,8 +30,11 @@ AND PrivilegeOperation='Permit'
 
 ## 伪代码
 1.从用户表cf_user中通过用户名LoginName查找用户ID UserID
+
 2.通过UserID从用户角色表cf_userrole中查找该用户对应角色的集合
+
 3.从权限表中通过用户ID或用户对应角色集合，查找对象名为CF_Role 和 访问权限为permit的对应MenuID
+
 4.从sys_menu表中通过MenuID，查找对应MenuName
 
 查询结果：
